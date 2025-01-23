@@ -59,7 +59,7 @@ export default {
   methods: {
     async translate() {
       try {
-        const response = await axios.get('http://localhost:3001/translate', {
+        const response = await axios.get('https://fullstack-translator.onrender.com//translate', {
           params: {
             fromLanguage: this.fromLanguage,
             toLanguage: this.toLanguage,
