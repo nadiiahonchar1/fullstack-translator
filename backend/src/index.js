@@ -1,23 +1,11 @@
 import express from "express";
-import translatedText from './services/translationService.js';
+import cors from "cors";
+import router from "./routes/translate.js";
 
 const app = express();
 
-app.get('/translate', async (req, res) => {
-    const { language, text } = req.query;
+app.use(cors());
 
-   if (!language || !text) {
-     return res
-       .status(400)
-       .json({ error: 'Missing required query parameters: language and text' });
-   }
-    try {
-      const translation = await translatedText(language, text);
-      res.json({ translation });
-    } catch (error) {
-        console.error('Error during translation:', error);
-        res.status(500).json({ error: 'Failed to translate text' });
-    }
-});
+app.use('/translate',router);
 
 app.listen(3001, ()=>console.log('Server running'));
