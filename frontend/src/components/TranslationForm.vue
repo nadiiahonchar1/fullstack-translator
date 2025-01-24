@@ -106,7 +106,7 @@ select {
 textarea,
 .transated {
   width: 100%;
-  height: 100px;
+  min-height: 140px;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
